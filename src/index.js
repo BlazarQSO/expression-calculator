@@ -31,7 +31,7 @@ function expressionCalculator(expr) {
                 if (stack.length > 0) {
                     pop = stack.pop();
                 } else {
-                    return Number("error");
+                    throw new Error("ExpressionError: Brackets must be paired");
                 }
 
                 if (pop != "(") {
@@ -85,7 +85,7 @@ function expressionCalculator(expr) {
                     if (Number(b) != 0) {
                         stackCount.push(Number(a) / Number(b));
                     } else {
-                        stackCount.unshift(Infinity);
+                        throw new Error("TypeError: Division by zero.");
                     }
                     break;
                 }

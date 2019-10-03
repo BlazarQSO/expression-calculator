@@ -85,7 +85,7 @@ function expressionCalculator(expr) {
                     if (Number(b) != 0) {
                         stackCount.push(Number(a) / Number(b));
                     } else {
-                        throw new Error("TypeError: Division by zero.");
+                        throw new Error("TypeError: Devision by zero.");
                     }
                     break;
                 }

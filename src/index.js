@@ -7,6 +7,10 @@ function expressionCalculator(expr) {
     const oper = [")", "(", "+", "-", "*", "/"];
     let reversExpr = [];
 
+    if(!expr.split('').includes(' ')) {
+        expr = expr.split('').join(' ');
+    }
+
     expr = expr.trim();
 
     let arrExpr = expr.split(" ");
@@ -17,7 +21,7 @@ function expressionCalculator(expr) {
 
 	let exp = arrExpr.join("");
     let open = 0;
-    let close = 0;            
+    let close = 0;
     while (exp.includes("(")) {
         open++;
         exp = exp.replace("(", "");
@@ -28,8 +32,8 @@ function expressionCalculator(expr) {
     }
     if (close != open) {
         throw new Error("ExpressionError: Brackets must be paired");
-    }     
-	
+    }
+
     let stack = [];
     for (let i = 0; i < arrExpr.length; i++) {
         if (!oper.includes(arrExpr[i])) {
@@ -99,7 +103,7 @@ function expressionCalculator(expr) {
                     if (Number(b) != 0) {
                         stackCount.push(Number(a) / Number(b));
                     } else {
-                        throw new Error("TypeError: Division by zero.");
+                        throw new Error("TypeError: Devision by zero.");
                     }
                     break;
                 }
